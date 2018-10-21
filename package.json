@@ -1,0 +1,29 @@
+{
+  "name": "mongodb",
+  "version": "1.0.0",
+  "description": "xxx",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Dmitry16/currency.git"
+  },
+  "keywords": [
+    "mongodb"
+  ],
+  "author": "Dima$",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dmitry16/currency/issues"
+  },
+  "homepage": "https://github.com/Dmitry16/currency#readme",
+  "dependencies": {
+    "async": "^2.6.1",
+    "config": "^2.0.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.4",
+    "node-fetch": "^2.2.0"
+  }
+}
