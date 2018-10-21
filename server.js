@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const mongoose = require('./libs/mongoose');
+require('./libs/mongoose');
 
-const db = mongoose.connection.db;
+// const db = mongoose.connection.db;
 const Currency = require('./models/currency');
 let data;
 

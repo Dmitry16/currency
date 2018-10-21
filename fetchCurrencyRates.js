@@ -5,11 +5,12 @@ const async = require('async');
 const Currency = require('models/currency');
 // console.log('readyState1::', mongoose.connection.readyState);
 
-const appKey = 'd934bced1d4d402891512ca4937298a9';
-const url = `https://openexchangerates.org/api/latest.json?app_id=${appKey}`;
 
 let data;
-const db = mongoose.connection.db;
+// const db = mongoose.connection.db;
+
+const appKey = process.env.OPEX_KEY;
+const url = `https://openexchangerates.org/api/latest.json?app_id=${appKey}`;
 
 const fetchData = async () => {
     const res = await fetch(url);
@@ -32,13 +33,13 @@ const saveData = () => {
     // console.log('data', data.rates);
     const currency = new Currency({ crs: data, date: new Date });
     currency.save()
-    .then((err, affected) => {
-        Currency.find({}, (err, res) => {
-            if (err) console.log('err:', err);
-            // if (res) console.log('res:', res);
-            // mongoose.connection.close();
+        .then((err, affected) => {
+            Currency.find({}, (err, res) => {
+                if (err) console.log('err:', err);
+                // if (res) console.log('res:', res);
+                // mongoose.connection.close();
+            })
         })
-    })
     .catch(err => console.log(err));
 }
 
